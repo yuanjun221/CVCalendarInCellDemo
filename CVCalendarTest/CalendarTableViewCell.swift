@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalendarTableViewCell.swift
 //  CVCalendarTest
 //
 //  Created by Jun.Yuan on 2016/9/27.
@@ -9,39 +9,40 @@
 import UIKit
 import CVCalendar
 
-class ViewController: UIViewController {
-
+class CalendarTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
+    
+    var tableView: UITableView!
 }
 
 
-extension ViewController {
+extension CalendarTableViewCell {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         menuView.menuViewDelegate = self
         calendarView.calendarDelegate = self
-
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         
-        calendarView.commitCalendarViewUpdate()
-        menuView.commitMenuViewUpdate()
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
 
 
-extension ViewController: CVCalendarMenuViewDelegate {
+extension CalendarTableViewCell: CVCalendarMenuViewDelegate {
     
 }
 
 
-extension ViewController: CVCalendarViewDelegate {
-
+extension CalendarTableViewCell: CVCalendarViewDelegate {
+    
     func presentationMode() -> CalendarMode {
         return .monthView
     }

@@ -1,26 +1,164 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aCE-v3-1lk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Root View Controller-->
+        <scene sceneID="7Ib-4O-D0N">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="KYB-G6-Nq8" customClass="TableViewController" customModule="CVCalendarTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="356" sectionHeaderHeight="18" sectionFooterHeight="18" id="zPh-be-z0l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalendarCell" rowHeight="355" id="Ey0-SG-BBi" customClass="CalendarTableViewCell" customModule="CVCalendarTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="120" width="375" height="355"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ey0-SG-BBi" id="BVi-cF-hAR">
+                                    <frame key="frameInset" width="375" height="354"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2H-ur-3Qq" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                            <color key="backgroundColor" red="0.94861778839999999" green="0.94861778839999999" blue="0.94861778839999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="a2h-Nd-nuW"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvG-fW-naH" customClass="CVCalendarView" customModule="CVCalendar">
+                                            <color key="backgroundColor" red="0.94861778839999999" green="0.94861778839999999" blue="0.94861778839999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="300" id="ApE-CI-hpH"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="UvG-fW-naH" firstAttribute="leading" secondItem="BVi-cF-hAR" secondAttribute="leadingMargin" constant="8" id="2bs-fE-3q9"/>
+                                        <constraint firstItem="g2H-ur-3Qq" firstAttribute="top" secondItem="BVi-cF-hAR" secondAttribute="topMargin" id="8e6-cm-On7"/>
+                                        <constraint firstItem="UvG-fW-naH" firstAttribute="bottom" secondItem="BVi-cF-hAR" secondAttribute="bottomMargin" priority="999" id="FTA-UF-QUN"/>
+                                        <constraint firstItem="g2H-ur-3Qq" firstAttribute="trailing" secondItem="BVi-cF-hAR" secondAttribute="trailingMargin" constant="-8" id="Jrr-n1-aY0"/>
+                                        <constraint firstItem="g2H-ur-3Qq" firstAttribute="leading" secondItem="BVi-cF-hAR" secondAttribute="leadingMargin" constant="8" id="hbG-Af-mCS"/>
+                                        <constraint firstItem="UvG-fW-naH" firstAttribute="top" secondItem="BVi-cF-hAR" secondAttribute="topMargin" constant="38" id="jFW-Kj-vGP"/>
+                                        <constraint firstItem="UvG-fW-naH" firstAttribute="trailing" secondItem="BVi-cF-hAR" secondAttribute="trailingMargin" constant="-8" id="sGG-sj-1RL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="calendarView" destination="UvG-fW-naH" id="atx-qn-8nS"/>
+                                    <outlet property="menuView" destination="g2H-ur-3Qq" id="Ire-70-Eg4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KYB-G6-Nq8" id="Ehs-cT-VCo"/>
+                            <outlet property="delegate" destination="KYB-G6-Nq8" id="po7-rB-2PT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Zn5-qd-sru"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kyn-wK-bnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="808.79999999999995" y="333.28335832083962"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2kJ-Qh-iGp">
+            <objects>
+                <tabBarController id="aCE-v3-1lk" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="HGy-Ar-oeC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="F8M-1v-yI2" kind="relationship" relationship="viewControllers" id="fPN-q4-D8z"/>
+                        <segue destination="r9L-mS-YFU" kind="relationship" relationship="viewControllers" id="N3q-aO-gbM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRv-az-jqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746" y="714"/>
+        </scene>
+        <!--View-->
+        <scene sceneID="bNL-0I-vFU">
+            <objects>
+                <navigationController id="F8M-1v-yI2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="View" id="QRU-Ft-VzN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4NS-HM-GFR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Cpj-0e-kwd" kind="relationship" relationship="rootViewController" id="66Y-pd-eXl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQd-75-oI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="1030"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VSW-d3-XCk">
+            <objects>
+                <viewController id="Cpj-0e-kwd" customClass="ViewController" customModule="CVCalendarTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TgH-c1-gQ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="eKF-fV-BNU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qI7-od-sK3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgO-ms-QEt" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <color key="backgroundColor" red="0.94861778839999999" green="0.94861778839999999" blue="0.94861778839999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZFS-D9-b1l"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqe-YW-Fuv" customClass="CVCalendarView" customModule="CVCalendar">
+                                <color key="backgroundColor" red="0.94861778839999999" green="0.94861778839999999" blue="0.94861778839999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="aDc-7n-J8d"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pqe-YW-Fuv" firstAttribute="top" secondItem="TgH-c1-gQ8" secondAttribute="bottom" constant="46" id="14y-w2-Gx0"/>
+                            <constraint firstItem="sgO-ms-QEt" firstAttribute="top" secondItem="TgH-c1-gQ8" secondAttribute="bottom" constant="8" id="7gg-np-4m7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pqe-YW-Fuv" secondAttribute="trailing" id="K3g-uV-loe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pqe-YW-Fuv" secondAttribute="leading" id="ZNM-3C-ZU2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sgO-ms-QEt" secondAttribute="trailing" id="bV8-4L-WOp"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="sgO-ms-QEt" secondAttribute="leading" id="uBg-Zc-fjp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hD2-2t-eD5"/>
+                    <connections>
+                        <outlet property="calendarView" destination="pqe-YW-Fuv" id="7MR-Ej-KEJ"/>
+                        <outlet property="menuView" destination="sgO-ms-QEt" id="nsT-iW-853"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ha9-nL-9XC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808.79999999999995" y="1029.5352323838081"/>
+        </scene>
+        <!--TableView-->
+        <scene sceneID="CaK-ms-oYD">
+            <objects>
+                <navigationController id="r9L-mS-YFU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TableView" id="2lh-WT-xXk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AxZ-gS-p4a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KYB-G6-Nq8" kind="relationship" relationship="rootViewController" id="i49-9G-7tG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2I-Kw-NYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="333"/>
         </scene>
     </scenes>
 </document>
